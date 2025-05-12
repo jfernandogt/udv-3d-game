@@ -36,10 +36,6 @@ namespace StarterAssets
 
 		public void OnJump(InputAction.CallbackContext value)
 		{
-			if (value.action.triggered)
-			{
-				Debug.Log($"Jump triggered: {value.action.triggered}");
-			}
 
 			JumpInput(value.action.triggered);
 		}
