@@ -13,7 +13,7 @@ public class Salud : MonoBehaviour
     [SerializeField] private UnityEvent alMorir;
 
     private float saludActual;
-    private Animator animador;
+    // private Animator animador;
     private bool estaMuerto = false;
     private bool esInvencible = false;
 
@@ -22,7 +22,7 @@ public class Salud : MonoBehaviour
 
     private void Awake()
     {
-        animador = GetComponent<Animator>();
+        // animador = GetComponent<Animator>();
         saludActual = saludMax;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -54,11 +54,12 @@ public class Salud : MonoBehaviour
 
     public void PerderSalud(float saludPerdida)
     {
+        Debug.Log("esInvencible: " + esInvencible);
         if (esInvencible) // Comprobar si es invencible
         {
             return; // No perder salud si es invencible
         }
-        animador.ResetTrigger("perderSalud");
+        // animador.ResetTrigger("perderSalud");
         saludActual = Mathf.Max(saludActual - saludPerdida, 0);
         alPerderSalud?.Invoke(saludPerdida);
         alActualizarSalud?.Invoke();
@@ -68,7 +69,7 @@ public class Salud : MonoBehaviour
         }
         else
         {
-            animador.SetTrigger("perderSalud");
+            // animador.SetTrigger("perderSalud");
         }
     }
 
@@ -81,7 +82,7 @@ public class Salud : MonoBehaviour
 
         alMorir?.Invoke();
         estaMuerto = true;
-        animador.SetTrigger("morir");
+        // animador.SetTrigger("morir");
         if (destruirAlMorir)
         {
             Destroy(gameObject, tiempoEnDestruirse);

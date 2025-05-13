@@ -16,6 +16,10 @@ public class PruebaIA : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (target == null)
+        {
+            return;
+        }
         navMeshAgent.SetDestination(target.position);
     }
 }

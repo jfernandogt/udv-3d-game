@@ -40,8 +40,12 @@ public class EnemigoME : MaquinaEstados
 
     protected override void Update()
     {
+        // if (TransformObjetivo != null)
+        // {
         base.Update();
+
         DistanciaAlObjetivo = Vector3.Distance(TransformObjetivo.position, transform.position);
+        // }
     }
 
     protected override Type ObtenerEstadoInicial()
