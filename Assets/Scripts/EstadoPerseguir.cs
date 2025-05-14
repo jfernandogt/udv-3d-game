@@ -5,31 +5,24 @@ using UnityEngine;
 public class EstadoPerseguir : EstadoBase
 {
     private EnemigoME enemigoME;
-
     public EstadoPerseguir(EnemigoME maquinaEstados) : base(maquinaEstados)
     {
         enemigoME = (EnemigoME)maquinaEstados;
     }
-
     public override void Entrar()
     {
         base.Entrar();
-        Debug.Log("Entró a Estado Perseguir");
-
+        Debug.Log("Entró a estado perseguir");
         enemigoME.ContTiempoAgresion = enemigoME.TiempoAgresion;
     }
-
     public override void UpdateLogica()
     {
         base.UpdateLogica();
-
         if (enemigoME.RevisarDistancia())
         {
             enemigoME.ContTiempoAgresion = enemigoME.TiempoAgresion;
         }
-
         enemigoME.ContTiempoAgresion -= Time.deltaTime;
-
         if (enemigoME.ContTiempoAgresion > 0)
         {
             if (enemigoME.DistanciaAlObjetivo > enemigoME.NavMeshAgent.stoppingDistance)
@@ -41,6 +34,11 @@ public class EstadoPerseguir : EstadoBase
                 enemigoME.CambiarEstado(typeof(EstadoAtacar));
                 return;
             }
+        }
+        else
+        {
+            enemigoME.CambiarEstado(typeof(EstadoReposo));
+            return;
         }
     }
 }

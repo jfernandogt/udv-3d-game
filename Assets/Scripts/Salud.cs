@@ -82,7 +82,6 @@ public class Salud : MonoBehaviour
 
         alMorir?.Invoke();
         estaMuerto = true;
-        // animador.SetTrigger("morir");
         if (destruirAlMorir)
         {
             Destroy(gameObject, tiempoEnDestruirse);
