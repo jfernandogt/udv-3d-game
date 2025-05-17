@@ -9,7 +9,7 @@ public class Arma : MonoBehaviour
     [SerializeField] private float rango = 100f;
     [SerializeField] private bool rafaga = false;
     [SerializeField] private int cantidadProyectiles = 1; // Para escopeta o número base para ráfaga
-    [SerializeField] private float dispersionMaxima = 5f; // Ángulo máximo de dispersión para escopeta
+    [SerializeField] private float dispersionMaxima = 0f; // Ángulo máximo de dispersión para escopeta
     [SerializeField] private LayerMask layerMask;
 
     [Header("GameObjects")]
